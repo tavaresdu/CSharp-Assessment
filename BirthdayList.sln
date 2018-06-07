@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdayListModel", "BirthdayListModel\BirthdayListModel.csproj", "{0821405E-584B-43BC-BC24-2C933D9A7E92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdayList", "BirthdayList\BirthdayList.csproj", "{5F7F192E-F158-42D8-B6DC-00FE338BAD54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0821405E-584B-43BC-BC24-2C933D9A7E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0821405E-584B-43BC-BC24-2C933D9A7E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0821405E-584B-43BC-BC24-2C933D9A7E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0821405E-584B-43BC-BC24-2C933D9A7E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F7F192E-F158-42D8-B6DC-00FE338BAD54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F7F192E-F158-42D8-B6DC-00FE338BAD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F7F192E-F158-42D8-B6DC-00FE338BAD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F7F192E-F158-42D8-B6DC-00FE338BAD54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00B46B16-91D0-4E2D-A3F7-8FF6E663B0CE}
+	EndGlobalSection
+EndGlobal
