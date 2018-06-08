@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Action.cs" />
+    <Compile Include="Classes\CommandAction.cs" />
+    <Compile Include="Classes\ScreenAction.cs" />
+    <Compile Include="Classes\Command.cs" />
     <Compile Include="Classes\Screen.cs" />
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
