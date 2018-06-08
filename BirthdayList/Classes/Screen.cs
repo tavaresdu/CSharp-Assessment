@@ -1,23 +1,19 @@
-﻿using System;
+﻿using BirthdayList.Classes;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BirthdayList
 {
     class Screen
     {
-        private Action action;
-        enum Commands
-        {
-            [Description("Novo")] N,
-            [Description("Buscar")] B,
-            [Description("Listar")] L,
-            [Description("Editar")] E,
-            [Description("Remover")] R
-        }
+        private ScreenAction action;
+        private Command command;
 
         public Screen()
         {
-            action = new Action();
+            action = new ScreenAction();
+            command = new Command();
         }
 
         public void Init()
@@ -32,7 +28,10 @@ namespace BirthdayList
 
         public void ShowCommands()
         {
-            foreach (var )
+            foreach (var letter in Enum.GetValues(typeof(Command.Letter)))
+            {
+                Console.WriteLine(String.Format("{0} - {1}", letter, command.GetDescription((Command.Letter)letter)));
+            }
         }
     }
 }

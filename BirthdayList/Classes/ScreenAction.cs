@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BirthdayList
 {
-    class Action
+    class ScreenAction
     {
         public List<Person> getTodayBirthdays()
         {
