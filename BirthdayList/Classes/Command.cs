@@ -9,14 +9,14 @@ namespace BirthdayList.Classes
     class Command
     {
         public CommandAction action;
-        public enum Letter { N, B, L, E, R, S }
+        public enum Letter { N, B, L, E, R, S, I }
 
         public Command()
         {
             action = new CommandAction();
         }
 
-        public Letter getValue(char c)
+        public static Letter getValue(char c)
         {
             switch (c)
             {
@@ -33,11 +33,11 @@ namespace BirthdayList.Classes
                 case 'S':
                     return Letter.S;
                 default:
-                    return (Letter)(-1);
+                    return Letter.I;
             }
         }
 
-        public string GetDescription(Letter cc)
+        public static string GetDescription(Letter cc)
         {
             switch (cc)
             {
@@ -60,6 +60,7 @@ namespace BirthdayList.Classes
 
         public Func<bool> Execute(Letter cc)
         {
+            Console.Clear();
             switch (cc)
             {
                 case Letter.N:
