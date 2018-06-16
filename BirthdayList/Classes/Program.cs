@@ -15,7 +15,7 @@ namespace BirthdayList
                 command.Execute(Command.getValue('I'))();
                 letter = Console.ReadKey().KeyChar;
             }
-            while (command.Execute(Command.getValue(ToUpper(letter)))())
+            while (command.Execute(Command.getValue(ToUpper(letter)))());
         }
 
         public static char ToUpper(char letter)
