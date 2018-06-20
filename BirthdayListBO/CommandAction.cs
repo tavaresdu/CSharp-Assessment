@@ -52,7 +52,7 @@ namespace BirthdayListBO
 
         public bool ListPeople()
         {
-            Console.WriteLine("ID - Nome Sobrenome (Aniversário)");
+            Console.WriteLine("ID - Nome Sobrenome (Nascimento)");
             ListPeople("");
             ShowMessageAndWaitKeyPress("Aperte qualquer tecla para sair da listagem...");
             return true;
@@ -65,8 +65,19 @@ namespace BirthdayListBO
             {
                 if (PersonMatch(person, search))
                 {
-                    Console.WriteLine(string.Format("{0} - {1} {2} ({3})",
-                        person.Id, person.Name, person.Surname, person.Birthdate.ToString("dd/MM/yyyy")));
+                    int days = GetDaysToNextBirthday(person);
+                    string message = "Faz aniversário hoje!";
+                    if (days > 1)
+                    {
+                        message = string.Format("Faltam {0} dias para seu aniversário.", days);
+                    }
+                    else if (days == 1)
+                    {
+                        message = "Seu aniversário é amanhã!";
+                    }
+                    Console.WriteLine(string.Format("{0} - {1} {2} ({3}) - {4}",
+                        person.Id, person.Name, person.Surname,
+                        person.Birthdate.ToString("dd/MM/yyyy"), message));
                 }
             }
             Console.WriteLine();
@@ -227,15 +238,15 @@ namespace BirthdayListBO
             return (person.Name.ToLower() + " " + person.Surname.ToLower()).Contains(search);
         }
 
-        //private int GetDaysToNextBirthday(Person person)
-        //{
-        //    int year = DateTime.Now.Year;
-        //    DateTime nextBirthday = new DateTime(year, person.Birthdate.Month, person.Birthdate.Day);
-        //    if (DateTime.Now.CompareTo(nextBirthday) < 0)
-        //    {
-
-        //    }
-        //    return 0;
-        //}
+        private int GetDaysToNextBirthday(Person person)
+        {
+            DateTime now = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            DateTime nextBirthday = new DateTime(now.Year, person.Birthdate.Month, person.Birthdate.Day);
+            if (now.CompareTo(nextBirthday) > 0)
+            {
+                nextBirthday = new DateTime(now.Year + 1, person.Birthdate.Month, person.Birthdate.Day);
+            }
+            return Convert.ToInt32((nextBirthday - now).TotalDays);
+        }
     }
 }
