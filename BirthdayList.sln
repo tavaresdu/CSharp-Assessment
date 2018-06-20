@@ -6,6 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdayListModel", "BirthdayListModel\BirthdayListModel.csproj", "{0821405E-584B-43BC-BC24-2C933D9A7E92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdayList", "BirthdayList\BirthdayList.csproj", "{5F7F192E-F158-42D8-B6DC-00FE338BAD54}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1A864CBD-3910-4F3E-822D-2510BEDA0180} = {1A864CBD-3910-4F3E-822D-2510BEDA0180}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdayListBO", "BirthdayListBO\BirthdayListBO.csproj", "{1A864CBD-3910-4F3E-822D-2510BEDA0180}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{5F7F192E-F158-42D8-B6DC-00FE338BAD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F7F192E-F158-42D8-B6DC-00FE338BAD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F7F192E-F158-42D8-B6DC-00FE338BAD54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A864CBD-3910-4F3E-822D-2510BEDA0180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A864CBD-3910-4F3E-822D-2510BEDA0180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A864CBD-3910-4F3E-822D-2510BEDA0180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A864CBD-3910-4F3E-822D-2510BEDA0180}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

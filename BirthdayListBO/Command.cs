@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BirthdayList.Classes
+namespace BirthdayListBO
 {
-    class Command
+    public class Command
     {
-        public CommandAction action;
+        private CommandAction action;
         public enum Letter { N, B, L, E, R, S, I }
 
         public Command()
@@ -64,17 +60,17 @@ namespace BirthdayList.Classes
             switch (cc)
             {
                 case Letter.N:
-                    return action.Novo;
+                    return action.New;
                 case Letter.B:
-                    return action.Buscar;
+                    return action.Find;
                 case Letter.L:
-                    return action.Listar;
+                    return action.ListPeople;
                 case Letter.E:
-                    return action.Editar;
+                    return action.Edit;
                 case Letter.R:
-                    return action.Remover;
+                    return action.Remove;
                 case Letter.S:
-                    return action.Sair;
+                    return action.Exit;
                 default:
                     return action.Init;
             }

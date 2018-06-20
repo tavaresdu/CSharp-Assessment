@@ -1,18 +1,21 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace BirthdayListModel.DAO
 {
     public class PersonDAO
     {
+        private string databaseName;
         private static PersonDAO instance = null;
-        public List<Person> List { get; }
-        private int index;
+        private People People { get; set; }
 
         private PersonDAO()
         {
-            List = new List<Person>();
-            index = 1;
+            People = new People();
+            databaseName = "DATABASE";
+            ReadFile();
         }
 
         public static PersonDAO Instance
@@ -29,24 +32,32 @@ namespace BirthdayListModel.DAO
 
         public void Add(Person person)
         {
+            person.Name = person.Name.Trim();
+            person.Surname = person.Surname.Trim();
             if (FindById(person.Id) == null)
             {
                 if (person.Id < 1)
                 {
-                    person.Id = index;
-                    index++;
+                    person.Id = People.Index;
+                    People.Index++;
                 }
-                List.Add(person);
+                People.List.Add(person);
             }
             else
             {
                 throw new Exception("Id column already exists");
             }
+            SaveFile();
+        }
+
+        public List<Person> GetAll()
+        {
+            return new List<Person>(People.List);
         }
 
         public Person FindById(int id)
         {
-            foreach (var person in List)
+            foreach (var person in People.List)
             {
                 if (person.Id == id)
                 {
@@ -62,7 +73,7 @@ namespace BirthdayListModel.DAO
             name = name.Trim();
             if (name != "")
             {
-                foreach (var person in List)
+                foreach (var person in People.List)
                 {
                     if ((person.Name.ToLower() + " " + person.Surname.ToLower()).Contains(name.ToLower()))
                     {
@@ -78,18 +89,49 @@ namespace BirthdayListModel.DAO
             Person original = FindById(person.Id);
             if (original != null)
             {
-                List.Insert(List.IndexOf(original), person);
-                List.Remove(original);
+                People.List.Insert(People.List.IndexOf(original), person);
+                People.List.Remove(original);
             }
             else
             {
                 throw new Exception("Id not found");
             }
+            SaveFile();
         }
 
         public void Remove(int id)
         {
-            List.Remove(FindById(id));
+            People.List.Remove(FindById(id));
+            SaveFile();
+        }
+
+        private void ReadFile()
+        {
+            string json;
+            try
+            {
+                using (StreamReader streamReader = new StreamReader(databaseName))
+                {
+                    json = streamReader.ReadLine();
+                }
+                People = JsonConvert.DeserializeObject<People>(json);
+            }
+            catch (FileNotFoundException)
+            {
+                StreamWriter streamWriter = new StreamWriter(databaseName);
+                streamWriter.Close();
+                People.List = new List<Person>();
+                People.Index = 1;
+            }
+        }
+
+        private void SaveFile()
+        {
+            string json = JsonConvert.SerializeObject(People);
+            using (StreamWriter streamWriter = new StreamWriter(databaseName))
+            {
+                streamWriter.Write(json);
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using BirthdayList.Classes;
-using System;
+﻿using System;
+using BirthdayListBO;
 
 namespace BirthdayList
 {
@@ -9,7 +9,6 @@ namespace BirthdayList
         {
             char letter;
             Command command = new Command();
-
             do
             {
                 command.Execute(Command.getValue('I'))();

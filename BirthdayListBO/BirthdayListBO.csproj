@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0821405E-584B-43BC-BC24-2C933D9A7E92}</ProjectGuid>
+    <ProjectGuid>{1A864CBD-3910-4F3E-822D-2510BEDA0180}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BirthdayListModel</RootNamespace>
-    <AssemblyName>BirthdayListModel</AssemblyName>
+    <RootNamespace>BirthdayListBO</RootNamespace>
+    <AssemblyName>BirthdayListBO</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,13 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\People.cs" />
-    <Compile Include="DAO\PersonDAO.cs" />
-    <Compile Include="Model\Person.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="CommandAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\BirthdayListModel\BirthdayListModel.csproj">
+      <Project>{0821405E-584B-43BC-BC24-2C933D9A7E92}</Project>
+      <Name>BirthdayListModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
