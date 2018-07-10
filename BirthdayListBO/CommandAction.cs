@@ -5,7 +5,7 @@ using System;
 
 namespace BirthdayListBO
 {
-    internal class CommandAction
+    internal class CommandAction : ICommandAction
     {
         public bool Init()
         {
@@ -58,6 +58,8 @@ namespace BirthdayListBO
             return true;
         }
 
+        // Método que lista as pessoas filtrando por uma palavra-chave.
+        // Caso a string seja vazia, lista todas as pessoas.
         public bool ListPeople(string search)
         {
             Console.WriteLine();
@@ -214,6 +216,7 @@ namespace BirthdayListBO
             }
         }
 
+        // Método que busca as pessoas que fazem aniversário no dia atual
         private List<Person> GetTodayBirthdays()
         {
             DateTime now = DateTime.Now;
@@ -233,6 +236,7 @@ namespace BirthdayListBO
             return DateTime.Now.Year - person.Birthdate.Year;
         }
 
+        // Verifica se nome e sobrenome de uma certa pessoa bate com uma string de busca.
         private bool PersonMatch(Person person, string search)
         {
             return (person.Name.ToLower() + " " + person.Surname.ToLower()).Contains(search);

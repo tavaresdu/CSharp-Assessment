@@ -4,7 +4,7 @@ namespace BirthdayListBO
 {
     public class Command
     {
-        private CommandAction action;
+        private ICommandAction action;
         public enum Letter { N, B, L, E, R, S, I }
 
         public Command()
